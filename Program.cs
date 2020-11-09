@@ -3,6 +3,7 @@ using EFDotNet001.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -57,10 +58,21 @@ namespace EFDotNet001
             }
 
 
+            using (var dbCtx = new CollegeContextEntities())
+            {
 
+                Course existingCourse = dbCtx.Courses.Where(x => x.id == 2).FirstOrDefault();
+                Student existingStudent = dbCtx.Students.Where(x => x.Id == 1).FirstOrDefault();
 
+                Enrolment newEnrolment = new Enrolment();
+                newEnrolment.Student = existingStudent;
+                newEnrolment.Course = existingCourse;
 
+                dbCtx.Enrolments.Add(newEnrolment);
 
+                dbCtx.SaveChanges();
+
+            }
 
 
 
