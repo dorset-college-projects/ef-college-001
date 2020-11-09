@@ -43,6 +43,23 @@ namespace EFDotNet001
             }
 
 
+            using (var dbCtx = new CollegeContextEntities())
+            {
+
+                List<Enrolment> listing = dbCtx.Enrolments.ToList();
+
+                foreach (Enrolment e in listing)
+                {
+                    Console.WriteLine($"Enrolment course  is {e.Course.Title} and Student is {e.Student.FirstName} {e.Student.LastName}");
+                }
+                Console.WriteLine($"Enrolment count is  {listing.Count}");
+             
+            }
+
+
+
+
+
 
 
 

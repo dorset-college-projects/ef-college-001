@@ -19,5 +19,6 @@ namespace EFDotNet001.dbcontext
 
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Enrolment> Enrolments { get; set; }
     }
 }
